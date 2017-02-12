@@ -1,12 +1,10 @@
 class AdvertisesController < ApplicationController
   before_action :set_advertise, only: [:show, :edit, :update, :destroy]
-  
   # GET /advertises
   # GET /advertises.json
   def index
-    byebug
-    # @user = User.find(params[:_id])
-    # @advertises = @user.advertises.all
+    @user = User.find(params[:user_id])
+    @advertises = @user.advertises.all
   end
 
   # GET /advertises/1
@@ -26,17 +24,13 @@ class AdvertisesController < ApplicationController
   # POST /advertises
   # POST /advertises.json
   def create
-    @user = User.find(params[:_id])
+   
+    @user = User.find(params[:user_id])
     @advertise = Advertise.new(advertise_params)
 
-    respond_to do |format|
-      if @advertise.save
-        format.html { redirect_to @advertise, notice: 'Advertise was successfully created.' }
-        format.json { render :show, status: :created, location: @advertise }
-      else
-        format.html { render :new }
-        format.json { render json: @advertise.errors, status: :unprocessable_entity }
-      end
+    if @advertise.save
+       redirect_to user_path(@user), notice: 'Advertise was successfully created.'
+       
     end
   end
 
@@ -72,7 +66,7 @@ class AdvertisesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def advertise_params
-      data = params.require(:advertise).permit(:title, :description)
+      data = params.require(:advertise).permit(:id, :title, :description, :started_at, :expiry_date, :category, :location, :area)
         data.store(:user_id,current_user.id)
         data
     end

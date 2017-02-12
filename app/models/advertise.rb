@@ -1,10 +1,12 @@
 class Advertise
   include Mongoid::Document
   belongs_to :user
-  belongs_to :category
-  
+  # mount_uploader :image, MyAppUploader
   field :title, type: String
-  field :create_date, type: Date
+  field :started_at, type: Date
 	field :description, type: String
-	field :expiry_date, type: Date	
+	field :expiry_date, type: Date
+  field :category, type: String
+  field :location, type: String
+  field :area, type: String 
 end

@@ -1,4 +1,5 @@
-<p id="notice"><%= notice %></p>
+Advertise show page
 
-<%= link_to 'Edit', edit_advertise_path(@advertise) %> |
-<%= link_to 'Back', advertises_path %>
+<%= link_to 'Edit', edit_user_advertise_path(current_user, @advertise) %> |
+<%= link_to 'Back', user_path(current_user) %>
+

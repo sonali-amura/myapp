@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Advertizer</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+	  <nav class="light-pink lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+    </div>
+</nav>
+	 <div class="container">
+	 	<div class="padding-left150">
+		<h1 class="header teal-lighten">Registration Form</h1>
+      	<div class="row ">
+			<form class="col s12">
+				<div class="row ">
+					<div class="input-field col s8">
+					  <i class="material-icons prefix">account_circle</i>
+					  <input  id="first_name" type="text" class="validate">
+					  <label for="first_name">Enter Your Name</label>
+					</div>
+				</div>
+				<div class="row">
+		        <div class="input-field col s8">
+		        	<i class="material-icons prefix">mode_edit</i>
+		          <textarea id="textarea1" class="materialize-textarea"></textarea>
+		          <label for="textarea1">Address</label>
+		        </div>
+		      </div>
+				  </div>
+				  <div class="row">
+					<div class="input-field col l4 s12">
+					  <i class="material-icons prefix">email</i>
+					  <input id="email" type="email" class="validate">
+					  <label for="email">Email</label>
+					</div>
+					<div class="input-field col l4 s12">
+					  <i class="material-icons prefix">phone</i>
+					  <input id="phone" type="text" class="validate">
+					  <label for="phone">Phone No</label>
+					</div>
+				  </div>
+				  <div class="row">
+				  	<div class="input-field col l4  s12">
+				  		 <i class="material-icons prefix">mode_edit</i>
+					  <input  id="user_name" type="text" class="validate">
+					  <label for="user_name">User Name</label>
+					</div>
+					<div class="input-field col l4 ">
+						<i class="material-icons prefix">visibility</i>
+					  <input id="password" type="text" class="validate">
+					  <label for="password">Password</label>
+					</div>
+				  </div>
+				  <div class="row">
+				  	 <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    					<i class="material-icons right">send</i>
+  					</button>
+				  </div>
+				  <div class="row">
+				  	<a href="#">Forgotten password?</a>
+				  </div>			
+			</form>
+		</div>
+	</div>
+ 
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Advertizer</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+    <nav class="light-pink lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+    </div>
+</nav>
+   <div class="container">
+    <div class="padding-left150">
+    <h1 class="header teal-lighten capitalize">create new advertise</h1>
+        <div class="row ">
+      <form class="col s12">
+        <div class="row ">
+          <div class="input-field col s8">
+            <!-- <i class="material-icons prefix">account_circle</i> -->
+            <input  id="name" type="text" class="validate">
+            <label for="name">Name</label>
+          </div>
+        </div>
+        
+        <div class="row ">
+        
+          <div class="input-field col s12 l8">
+    <select class="icons">
+      <option value="" disabled selected>Sub-Category</option>
+      <option value="" data-icon="images/sample-1.jpg" class="left circle">Shop</option>
+      <option value="" data-icon="images/office.jpg" class="left circle">Hotel</option>
+      <option value="" data-icon="images/yuna.jpg" class="left circle">Classes</option>
+    </select>
+    <label>Images in select</label>
+  </div>
+
+        </div>
+        
+        <div class="row ">
+          <div class="input-field col s8">
+            <input  id="location" type="text" class="validate">
+            <label for="location">Location</label>
+          </div>
+        </div>
+        
+        <div class="row ">
+          <div class="input-field col s8">
+            
+            <input  id="Area" type="text" class="validate">
+            <label for="Area">Area</label>
+          </div>
+        </div>
+       
+        
+        <div class="row">
+            <div class="input-field col s8">
+            
+              <textarea id="Description" class="materialize-textarea"></textarea>
+              <label for="Description">Description</label>
+            </div
+          </div>
+        </div>
+         <div class="row">
+             <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </form>
+    </div>
+  </div>
+ 
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script>
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+  </script>
+  </body>
+</html>

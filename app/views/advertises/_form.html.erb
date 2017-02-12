@@ -1,25 +1,45 @@
-<%= form_for  new_user_advertise_path, :html => {:multipart => true }   do |f| %>
-  <% if @advertise.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@advertise.errors.count, "error") %> prohibited this advertise from being saved:</h2>
+<%= form_for :advertise, url: user_advertises_path(current_user) do |f| %>
 
-      <ul>
-      <% @advertise.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+<div class="row">
+  <div class="input-field col s4">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
   </div>
-  <div class="field">
+  <div class="input-field col s4">
     <%= f.label :description %><br>
     <%= f.text_field :description %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+</div>
+
+
+<div class="field">
+    <%= f.label :category %><br>
+    <%= f.text_field :category %>
   </div>
+  <div class="field">
+    <%= f.label :area %><br>
+    <%= f.text_field :area %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  
+  <div class="row">
+  <div class="input-field col s4">
+    <%= f.label :started_at, "Start date", class:"active"  %>
+    <%= f.date_field :started_at,class:"datepicker"%>
+  </div>
+  <div class="input-field col s4">
+    <%= f.label :expiry_date, "Deadline", class:"active"  %>
+    <%= f.date_field :expiry_date,class:"datepicker" %>
+  </div>
+</div>
+  <div class="field">
+      <%= f.label :image %><br>
+      <%= f.file_field :image %>
+   </div>
+<div class="actions">
+  <%= f.submit %>
+</div>
 <% end %>

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root to: "home#index"
   resources :users do
     resources :advertises
-    resources :categories
+    # resources :categories
   end
 
   # Example of regular route:
