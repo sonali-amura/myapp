@@ -1,17 +1,41 @@
 <%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="row ">
+    <div class="input-field col s6">
+    <i class="material-icons prefix">account_circle</i>
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true %>
     </div>
-  <% end %>
-
+    <div class="input-field col s6">
+      <i class="material-icons prefix">mode_edit</i>
+      <%= f.label :address %><br />
+      <%= f.text_field :address %>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="input-field col s6">
+    <i class="material-icons prefix">email</i>
+      <%= f.label :email %><br />
+      <%= f.email_field :email%>
+    </div>
+    <div class="input-field col s6">
+      <i class="material-icons prefix">phone</i>
+      <%= f.label :phone %><br />
+      <%= f.text_field :phone %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <i class="material-icons prefix">visibility</i>
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
+    <div class="input-field col s6">
+      <i class="material-icons prefix">email</i>
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
+  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Sign up" ,class:"btn waves-effect waves-light"%>
   </div>
 <% end %>

@@ -11,35 +11,36 @@
   </div>
 </div>
 
-
-<div class="field">
-    <%= f.label :category %><br>
-    <%= f.text_field :category %>
+<div class="row">
+<div class="input-field col s4">
+<%= f.select(:category,options_for_select([['Hotel', 'hotel'], ['Shop', 'shop']])) %>
+<%= f.label :category,"Category" %><br>
   </div>
-  <div class="field">
+  <div class="input-field col s4">
     <%= f.label :area %><br>
     <%= f.text_field :area %>
   </div>
-  <div class="field">
+  <div class="input-field col s4">
     <%= f.label :location %><br>
     <%= f.text_field :location %>
   </div>
-  
-  <div class="row">
+</div>
+
+<div class="row">
   <div class="input-field col s4">
-    <%= f.label :started_at, "Start date", class:"active"  %>
+    <%= f.label :started_at, "Start date"%>
     <%= f.date_field :started_at,class:"datepicker"%>
   </div>
   <div class="input-field col s4">
-    <%= f.label :expiry_date, "Deadline", class:"active"  %>
+    <%= f.label :expiry_date, "Deadline"%>
     <%= f.date_field :expiry_date,class:"datepicker" %>
   </div>
-</div>
-  <div class="field">
-      <%= f.label :image %><br>
-      <%= f.file_field :image %>
+
+  <div class="input-field col s4">
+      <%= f.file_field :avatar ,class:"waves-light"%>
    </div>
+</div>
 <div class="actions">
-  <%= f.submit %>
+  <%= f.submit "Create" ,class:"btn waves-effect waves-light"%>
 </div>
 <% end %>

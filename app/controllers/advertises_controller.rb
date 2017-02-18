@@ -1,42 +1,33 @@
 class AdvertisesController < ApplicationController
   before_action :set_advertise, only: [:show, :edit, :update, :destroy]
-  # GET /advertises
-  # GET /advertises.json
+
   def index
     @user = User.find(params[:user_id])
     @advertises = @user.advertises.all
+    @adv = Advertise.all
   end
 
-  # GET /advertises/1
-  # GET /advertises/1.json
   def show
   end
 
-  # GET /advertises/new
   def new
     @advertise = Advertise.new
   end
 
-  # GET /advertises/1/edit
   def edit
   end
 
-  # POST /advertises
-  # POST /advertises.json
   def create
-   
     @user = User.find(params[:user_id])
     @advertise = Advertise.new(advertise_params)
-
+    @advertise.avatar =  params[:advertise][:avatar]
+    @advertise.creator = current_user.id.to_s
     if @advertise.save
-       redirect_to user_path(@user), notice: 'Advertise was successfully created.'
-       
+       redirect_to user_path(@user), notice: 'Advertise was successfully created.'      
     end
   end
 
-  # PATCH/PUT /advertises/1
-  # PATCH/PUT /advertises/1.json
-  def update
+   def update
     respond_to do |format|
       if @advertise.update(advertise_params)
         format.html { redirect_to @advertise, notice: 'Advertise was successfully updated.' }
@@ -48,8 +39,6 @@ class AdvertisesController < ApplicationController
     end
   end
 
-  # DELETE /advertises/1
-  # DELETE /advertises/1.json
   def destroy
     @advertise.destroy
     respond_to do |format|
@@ -58,16 +47,22 @@ class AdvertisesController < ApplicationController
     end
   end
 
+  def image
+    content = @advertise.image.read
+    if stale?(etag: content, last_modified: @advertise.updated_at.utc, public: true)
+      send_data content, type: @advertise.image.file.content_type, disposition: "inline"
+      expires_in 0, public: true
+    end
+  end
+
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_advertise
       @advertise = Advertise.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def advertise_params
       data = params.require(:advertise).permit(:id, :title, :description, :started_at, :expiry_date, :category, :location, :area)
-        data.store(:user_id,current_user.id)
-        data
+      data.store(:user_id,current_user.id)
+      data
     end
 end
