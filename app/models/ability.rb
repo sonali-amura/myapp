@@ -1,16 +1,16 @@
 class Ability
   include CanCan::Ability
-  def initialize(user)
-    user ||= User.new # guest user (not logged in)
-    if user.admin?
-      can :manage, :all
-    elsif user.role == 'advertiser'
-      can [:create, :destroy, :update, :read ] [Advertise]
-      can [:read] [Category]
-    elsif user.role == 'viewer'
-      can [:read] [Advertise, Category]
-    end
-  end
+  # def initialize(user)
+  #   user ||= User.new # guest user (not logged in)
+  #   if user.role == 'admin'
+  #     can :manage, :all
+  #   elsif user.role == 'advertiser'
+  #     can [:create, :destroy, :update, :read ] [Advertise]
+  #     can [:read] [Category]
+  #   elsif user.role == 'viewer'
+  #     can [:read] [Advertise, Category]
+  #   end
+  # end
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
